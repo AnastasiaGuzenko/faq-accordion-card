@@ -1,15 +1,27 @@
 let acc = document.getElementsByClassName("accordion__btn");
-let i;
+let accIndex;
 
-for (i = 0; i < acc.length; i++) {
+for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-
-    let panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
+    if (accIndex == i) {
+      accIndex = null
     } else {
-      panel.style.display = "block";
+      accIndex = i
     }
+    changeDisplaySiblingElement()
   });
 }
+
+function changeDisplaySiblingElement() {
+  for (let i = 0; i < acc.length; i++) {
+    let panel =  acc[i].nextElementSibling;
+    if (i == accIndex) {
+      panel.style.display = "block";
+      acc[i].classList.add('active')
+
+    } else {
+      panel.style.display = "none";
+      acc[i].classList.remove('active')
+    }
+  }
+};
