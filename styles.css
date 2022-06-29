@@ -46,13 +46,6 @@ body {
   bottom: 10px;
 }
 
-.picture__up {
-  position: absolute;
-  z-index: 3;
-  width: 300px;
-  height: 300px;
-}
-
 .description {
   width: 50%;
   display: flex;
@@ -67,6 +60,9 @@ body {
   font-size: 30px;
 }
 
+.accordion {
+  border-bottom: 0.1px solid hsl(236, 11%, 26%);
+}
 .accordion__btn {
   width: 100%;
   display: flex;
@@ -75,13 +71,31 @@ body {
   cursor: pointer;
   background-color: #fff;
   border: none;
-  border-bottom: 1px solid hsl(236, 11%, 26%);
-  padding: 0;
-}
-
-.accordion__title {
-  color: hsl(237, 12%, 33%);
+  padding: 20px 0;
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 16px;
+  color: hsl(237, 12%, 33%);
+  font-weight: 500;
+}
+
+.active, .accordion__btn:hover {
   font-weight: 700;
 }
+
+.accordion__panel {
+  display: none;
+  overflow: hidden;
+}
+
+.accordion__btn:after {
+  content: '▼';
+  color: #F47B56;
+  font-size: 16px;
+}
+
+.active:after {
+  content: "▲";
+  color: #F47B56;
+  font-size: 16px;
+}
+
